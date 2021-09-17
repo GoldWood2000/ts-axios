@@ -50,6 +50,9 @@ axios({
   params: {
     bar: 'baz'
   }
+}).then(res => {
+  console.log(res);
+
 })
 
 // axios({
@@ -67,6 +70,8 @@ axios({
     a: 1,
     b: 2
   }
+}).then((res) => {
+  console.log(res);
 })
 
 axios({
@@ -75,8 +80,11 @@ axios({
   headers: {
     'content-type': 'application/json;charset=utf-8'
   },
+  responseType: 'json',
   data: {
     name: 'leo',
     age: 12
   }
+}).then(res => {
+  console.log(res);
 })
