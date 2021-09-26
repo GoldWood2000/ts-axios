@@ -1,9 +1,13 @@
 const toString = Object.prototype.toString
 
-export function isDate(val: any): val is Date {
+export function isDate<T>(val: T) {
   return toString.call(val) === '[object Date]'
 }
 
-export function isObject(val: any): val is Object {
+export function isObject<T>(val: T) {
   return toString.call(val) === '[object Object]'
+}
+
+export function isArray<T>(val: T) {
+  return toString.call(val) === '[object Array]'
 }

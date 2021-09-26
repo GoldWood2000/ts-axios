@@ -1,4 +1,4 @@
-import { isDate, isObject } from './common'
+import { isDate, isObject, isArray } from './common'
 
 function encode(val: string): string {
   return encodeURIComponent(val)
@@ -16,7 +16,7 @@ export function bulidURL(url: string, params?: any) {
     return url
   }
 
-  if (!(toString.call(params) === '[object Object]')) {
+  if (!isObject(params)) {
     throw new Error('params Should be a Object')
   }
 
@@ -25,7 +25,7 @@ export function bulidURL(url: string, params?: any) {
     if (params[key] === null || params[key] === undefined) return
     let val: string = ''
     switch (true) {
-      case Array.isArray(params[key]):
+      case isArray(params[key]):
         ;(params[key] as []).map((item, index) => {
           if (item === null || item === undefined) return
           val = `${key}[]=${item}`
