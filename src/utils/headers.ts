@@ -33,16 +33,13 @@ export function transformResponseHeader(headers: string) {
     return {}
   }
 
-  return headers
-    .trim()
-    .split('\r\n')
-    .reduce((previousValue: ResponseHeadersObject, currentValue) => {
-      const [key, value] = currentValue.trim().split(': ')
-      // Object.defineProperty(previousValue, key, {
-      //   value,
-      //   writable: true
-      // })
-      previousValue[key] = value
-      return previousValue
-    }, {})
+  return headers.trim().split('\r\n').reduce((previousValue: ResponseHeadersObject, currentValue) => {
+    const [key, value] = currentValue.trim().split(': ')
+    // Object.defineProperty(previousValue, key, {
+    //   value,
+    //   writable: true
+    // })
+    previousValue[key] = value
+    return previousValue
+  }, {})
 }
