@@ -55,7 +55,6 @@ router.get('/error/get', function (req, res) {
     res.end()
   }
 })
-
 router.get('/error/timeout', function (req, res) {
   setTimeout(() => {
     res.json({
